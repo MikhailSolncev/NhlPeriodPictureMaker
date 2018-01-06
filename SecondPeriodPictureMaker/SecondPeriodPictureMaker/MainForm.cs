@@ -114,7 +114,7 @@ namespace SecondPeriodPictureMaker
 
         private void buttonCreatePictures_Click(object sender, EventArgs e)
         {
-            presenter.createPictures();
+            presenter.createPictures(checkBoxPlayoff.Checked);
         }
     }
 }

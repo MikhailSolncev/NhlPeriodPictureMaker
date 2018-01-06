@@ -8,6 +8,6 @@ namespace SecondPeriodPictureMaker
         void lookForSchedule(DateTime date);
         void attach(MainView mainForm);
         void detach();
-        void createPictures();
+        void createPictures(bool playoff);
     }
 }

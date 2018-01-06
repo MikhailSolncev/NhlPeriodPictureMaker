@@ -28,74 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.buttonLoadSchedule = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.listBoxGames = new System.Windows.Forms.ListBox();
             this.buttonCreatePictures = new System.Windows.Forms.Button();
+            this.checkBoxPlayoff = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(13, 13);
+            resources.ApplyResources(this.dateTimePicker, "dateTimePicker");
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(144, 20);
-            this.dateTimePicker.TabIndex = 0;
             // 
             // buttonLoadSchedule
             // 
-            this.buttonLoadSchedule.Location = new System.Drawing.Point(13, 39);
+            resources.ApplyResources(this.buttonLoadSchedule, "buttonLoadSchedule");
             this.buttonLoadSchedule.Name = "buttonLoadSchedule";
-            this.buttonLoadSchedule.Size = new System.Drawing.Size(144, 23);
-            this.buttonLoadSchedule.TabIndex = 1;
-            this.buttonLoadSchedule.Text = "Load schedule";
             this.buttonLoadSchedule.UseVisualStyleBackColor = true;
             this.buttonLoadSchedule.Click += new System.EventHandler(this.ButtonLoadSchedule_Click);
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(13, 68);
+            resources.ApplyResources(this.progressBar, "progressBar");
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(294, 23);
-            this.progressBar.TabIndex = 2;
             // 
             // listBoxGames
             // 
             this.listBoxGames.FormattingEnabled = true;
-            this.listBoxGames.IntegralHeight = false;
-            this.listBoxGames.Location = new System.Drawing.Point(12, 97);
+            resources.ApplyResources(this.listBoxGames, "listBoxGames");
             this.listBoxGames.MultiColumn = true;
             this.listBoxGames.Name = "listBoxGames";
-            this.listBoxGames.Size = new System.Drawing.Size(295, 233);
-            this.listBoxGames.TabIndex = 3;
             // 
             // buttonCreatePictures
             // 
-            this.buttonCreatePictures.Location = new System.Drawing.Point(163, 39);
+            resources.ApplyResources(this.buttonCreatePictures, "buttonCreatePictures");
             this.buttonCreatePictures.Name = "buttonCreatePictures";
-            this.buttonCreatePictures.Size = new System.Drawing.Size(144, 23);
-            this.buttonCreatePictures.TabIndex = 4;
-            this.buttonCreatePictures.Text = "Create pictures";
             this.buttonCreatePictures.UseVisualStyleBackColor = true;
             this.buttonCreatePictures.Click += new System.EventHandler(this.buttonCreatePictures_Click);
             // 
+            // checkBoxPlayoff
+            // 
+            resources.ApplyResources(this.checkBoxPlayoff, "checkBoxPlayoff");
+            this.checkBoxPlayoff.Name = "checkBoxPlayoff";
+            this.checkBoxPlayoff.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 342);
+            this.Controls.Add(this.checkBoxPlayoff);
             this.Controls.Add(this.buttonCreatePictures);
             this.Controls.Add(this.listBoxGames);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.buttonLoadSchedule);
             this.Controls.Add(this.dateTimePicker);
-            this.MinimumSize = new System.Drawing.Size(335, 380);
             this.Name = "MainForm";
-            this.Text = "Period picture maker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -106,6 +100,7 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.ListBox listBoxGames;
         private System.Windows.Forms.Button buttonCreatePictures;
+        private System.Windows.Forms.CheckBox checkBoxPlayoff;
     }
 }
 

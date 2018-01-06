@@ -53,7 +53,7 @@ namespace SecondPeriodPictureMaker
             }
         }
 
-        public void createPictures()
+        public void createPictures(bool playoff)
         {
             if (mGameList == null) return;
 
@@ -62,11 +62,11 @@ namespace SecondPeriodPictureMaker
             if (mView != null)
                 mView.showProgress();
 
-            Thread childThread = new Thread(() => createPicturesInBackground(copyList));
+            Thread childThread = new Thread(() => createPicturesInBackground(copyList, playoff));
             childThread.Start();
         }
 
-        private void createPicturesInBackground(List<Game> copyList)
+        private void createPicturesInBackground(List<Game> copyList, bool playoff)
         {
             foreach (Game game in copyList)
             {
@@ -85,7 +85,7 @@ namespace SecondPeriodPictureMaker
                 for (int period = 1; period < 4; period ++)
                 {
                     string bacgroundFileName = "sourcepics/" + "BckgrndRegular" + ".png";
-
+                    if (playoff) bacgroundFileName = "sourcepics/" + "BckgrndPlayoff" + ".png";
                     // 2. создать подложку, раскрасить её
                     Bitmap backgroung = (Bitmap) Image.FromFile(bacgroundFileName);
 
