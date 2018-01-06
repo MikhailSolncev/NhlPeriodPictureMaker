@@ -140,17 +140,20 @@ namespace SecondPeriodPictureMaker
 
         public void changeGuestColor(Bitmap result, Color guestColor)
         {
-            Color colorBlack = Color.FromArgb(0x00000000);
+            Color colorBlack = Color.Black;
             for (int x = 0; x < result.Width; x++)
             {
                 for (int y = 0; y < result.Height; y++)
                 {
-                    if (result.GetPixel(x, y) == Color.Red)
+                    Color colorAtPoint = result.GetPixel(x, y);
+                    if (colorAtPoint.A == colorBlack.A && colorAtPoint.R == colorBlack.R
+                            && colorAtPoint.G == colorBlack.G && colorAtPoint.B == colorBlack.B)
                     {
                         result.SetPixel(x, y, guestColor);
                     }
                 }
             }
         }
+
     }
 }

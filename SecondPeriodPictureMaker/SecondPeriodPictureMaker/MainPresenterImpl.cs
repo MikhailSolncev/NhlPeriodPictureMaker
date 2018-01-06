@@ -79,6 +79,9 @@ namespace SecondPeriodPictureMaker
                 Bitmap logoGuest = mModel.resizeLogo(fileGuest);
                 Bitmap logoHost = mModel.resizeLogo(fileHost);
 
+                string text = System.IO.File.ReadAllText(fileRGB);
+                int guestArgb = int.Parse(text.Substring(1), System.Globalization.NumberStyles.HexNumber);
+
                 for (int period = 1; period < 4; period ++)
                 {
                     string bacgroundFileName = "sourcepics/" + "BckgrndRegular" + ".png";
@@ -90,6 +93,8 @@ namespace SecondPeriodPictureMaker
                     var graphics = Graphics.FromImage(result);
                     graphics.CompositingMode = CompositingMode.SourceOver; // this is the default, but just to be clear
                     graphics.DrawImage(backgroung, 0, 0);
+
+                    mModel.changeGuestColor(result, Color.FromArgb(255, Color.FromArgb(guestArgb)));
 
                     int top = 47;
                     // 3. добавить логотип гостя // координаты -10, 47

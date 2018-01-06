@@ -13,6 +13,6 @@ namespace SecondPeriodPictureMaker
         List<Game> lookForSchedule(DateTime date);
         void saveImageToFile(Bitmap image, string filename);
         Bitmap resizeLogo(string fileGuest);
-        void changeGuestColor(Bitmap result);
+        void changeGuestColor(Bitmap result, Color guestColor);
     }
 }
