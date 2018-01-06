@@ -85,5 +85,10 @@ namespace SecondPeriodPictureMaker
             listBoxGames.Height = this.Height - 115;
             listBoxGames.Width = this.Width - 40;
         }
+
+        private void buttonCreatePictures_Click(object sender, EventArgs e)
+        {
+            presenter.createPictures();
+        }
     }
 }

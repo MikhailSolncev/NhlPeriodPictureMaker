@@ -32,6 +32,7 @@
             this.buttonLoadSchedule = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.listBoxGames = new System.Windows.Forms.ListBox();
+            this.buttonCreatePictures = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker
@@ -55,7 +56,7 @@
             // 
             this.progressBar.Location = new System.Drawing.Point(13, 68);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(144, 23);
+            this.progressBar.Size = new System.Drawing.Size(294, 23);
             this.progressBar.TabIndex = 2;
             // 
             // listBoxGames
@@ -65,19 +66,30 @@
             this.listBoxGames.Location = new System.Drawing.Point(12, 97);
             this.listBoxGames.MultiColumn = true;
             this.listBoxGames.Name = "listBoxGames";
-            this.listBoxGames.Size = new System.Drawing.Size(145, 95);
+            this.listBoxGames.Size = new System.Drawing.Size(295, 233);
             this.listBoxGames.TabIndex = 3;
+            // 
+            // buttonCreatePictures
+            // 
+            this.buttonCreatePictures.Location = new System.Drawing.Point(163, 39);
+            this.buttonCreatePictures.Name = "buttonCreatePictures";
+            this.buttonCreatePictures.Size = new System.Drawing.Size(144, 23);
+            this.buttonCreatePictures.TabIndex = 4;
+            this.buttonCreatePictures.Text = "Create pictures";
+            this.buttonCreatePictures.UseVisualStyleBackColor = true;
+            this.buttonCreatePictures.Click += new System.EventHandler(this.buttonCreatePictures_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(169, 202);
+            this.ClientSize = new System.Drawing.Size(319, 342);
+            this.Controls.Add(this.buttonCreatePictures);
             this.Controls.Add(this.listBoxGames);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.buttonLoadSchedule);
             this.Controls.Add(this.dateTimePicker);
-            this.MinimumSize = new System.Drawing.Size(185, 240);
+            this.MinimumSize = new System.Drawing.Size(335, 380);
             this.Name = "MainForm";
             this.Text = "Period picture maker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -93,6 +105,7 @@
         private System.Windows.Forms.Button buttonLoadSchedule;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.ListBox listBoxGames;
+        private System.Windows.Forms.Button buttonCreatePictures;
     }
 }
 
