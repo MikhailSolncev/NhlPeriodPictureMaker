@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,14 +14,14 @@ namespace SecondPeriodPictureMaker
     public partial class MainForm : Form, MainView
     {
         private MainPresenter presenter;
-
+        private Thread progressThread;
         int difference;
 
         public MainForm()
         {
             InitializeComponent();
 
-            
+
         }
 
         public void hideProgress()
@@ -33,6 +34,9 @@ namespace SecondPeriodPictureMaker
                 listBoxGames.Height = listBoxGames.Height + difference;
             }));
 
+            if (progressThread != null && progressThread.IsAlive)
+                progressThread.Abort();
+            progressThread = null;
         }
 
         public void showProgress()
@@ -44,6 +48,26 @@ namespace SecondPeriodPictureMaker
                 listBoxGames.Location = new Point(listBoxGames.Location.X, listBoxGames.Location.Y + difference);
                 listBoxGames.Height = listBoxGames.Height - difference;
             }));
+
+            progressThread = new Thread(() =>
+                {
+                    while (true)
+                    {
+                        try
+                        {
+                            BeginInvoke((Action)(() =>
+                            {
+                                progressBar.Value = progressBar.Value >= progressBar.Maximum ? 0 : progressBar.Value + 1;
+                            }));
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                        Thread.Sleep(20);
+                    }
+                });
+            progressThread.Start();
         }
 
         public void showMatches(List<Game> list)
@@ -68,6 +92,8 @@ namespace SecondPeriodPictureMaker
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             presenter.detach();
+
+            hideProgress();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
